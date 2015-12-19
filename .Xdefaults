@@ -1,0 +1,93 @@
+!##########################!
+!### Main Configuration ###!
+!##########################!
+
+*background:	    #111111
+*foreground:	    #dcdcdc
+
+!###############!
+!### Xcursor ###!
+!###############!
+!
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size:  22
+
+!###########!
+!### Xft ###!
+!###########!
+
+Xft*antialias:      true
+Xft*lcdfilter:      lcdnone
+Xft*hintstyle:	    hintslight
+
+!#############!
+!### xterm ###!
+!#############!
+
+xterm*faceName:         DejaVu Sans Mono
+!xterm*faceName:         Droid MonoVar
+xterm*scaleHeight: 1.0000001
+xterm*faceSize:         10.5
+xterm*dynamicColors:	true
+xterm*geometry:		    80x25
+xTerm*bellIsUrgent:     true
+xterm*locale: UTF-8
+XTerm*selectToClipboard: true
+XTerm*metaSendsEscape: true
+
+!####################!
+!### rxvt-unicode ###!
+!####################!
+
+!URxvt.font:             xft:Inconsolata:pixelsize=14:antialias=true
+!URxvt.font:             xft:DejaVu Sans Mono:pixelsize=14
+URxvt.font: xft:dejavu sans mono for powerline:pixelsize=14:antialias=true:hinting=true
+URxvt*letterSpace:          -1
+URxvt.lineSpace:            1
+URxvt.scrollBar:            false
+URxvt.scrollstyle:          rxvt
+URxvt.urgentOnBell:         true
+URxvt.iso14755:             false
+URxvt.iso14755_52:          false
+URxvt.perl-lib:             .urxvt/urxvt-perls/
+URxvt.perl-ext-common:      default,url-picker,keyboard-select,font-size
+URxvt.urlLauncher:          /usr/bin/firefox
+URxvt.keysym.M-u:           perl:url-picker
+URxvt.keysym.M-v:           perl:keyboard-select:activate
+URxvt.keysym.C-equal:       perl:font-size:increase
+URxvt.keysym.C-minus:       perl:font-size:decrease
+URxvt.keysym.M-c:           perl:clipboard:copy
+URxvt.keysym.M-v:           perl:clipboard:paste
+URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
+URxvt.pointerBlank:         true
+Urxvt:                      pointerBlankDelay: 1
+urxvt.fading:               15
+URxvt.inputMethod:          ibus
+URxvt.preeditType:          OverTheSpot
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+!##############!
+!### Colors ###!
+!##############!
+
+!*color0:    #2E3436
+*color0:    #111111
+*color1:    #CC0000
+*color2:    #4E9A06
+*color3:    #C4A000
+*color4:    #3465A4
+*color5:    #75507B
+*color6:    #06989A
+*color7:    #D3D7CF
+*color8:    #555735
+*color9:    #EF2929
+*color10:   #8AE234
+*color11:   #FCE94F
+*color12:   #729FCF
+*color13:   #AD7DA8
+*color14:   #34E2E2
+*color15:   #EEEEEC
+
