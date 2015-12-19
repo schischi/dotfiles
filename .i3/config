@@ -1,0 +1,259 @@
+###################
+#### Variables ####
+###################
+set $mod        Mod4
+set $alt        Mod1
+set $black      #000000
+set $white      #ffffff
+set $orange     #ff3300
+set $gray       #888888
+set $darkgray   #222222
+set $darkgray2  #333333
+set $darkgray3  #444444
+set $red        #900000
+set $green      #009000
+set $green2     #00dd42
+set $blue       #4c7899
+
+set $shell urxvt
+#set $shell xterm
+set $browser firefox
+
+#################
+#### Startup ####
+#################
+exec feh --bg-max ~/.i3/bg.png
+exec $shell
+exec $browser
+
+####################
+#### Appearance ####
+####################
+# window's colors
+client.focused           $darkgray2  $blue      $white  #2e9ef4
+client.focused_inactive  $darkgray2  $blue      $white  #292d2e
+client.unfocused         $darkgray2  $darkgray  $gray   #292d2e
+client.urgent            $orange     $red       $white  $red
+# font for window titles
+#font xft:Terminus 8
+font xft:DejaVu Sans Mono 8
+# Border
+new_window pixel 1
+# Fullscreen Popup
+popup_during_fullscreen smart
+# misc.
+assign [class="Firefox"] 2
+assign [class="Claws-mail"] 10
+for_window [title="Screen Layout Editor"]   floating enable
+for_window [title="Starting NetBeans IDE"]  floating enable
+
+##################
+#### Bindkeys ####
+##################
+workspace_auto_back_and_forth    yes
+# floating
+floating_modifier $mod
+# scratchpad
+bindsym  $mod+o                  scratchpad show
+bindsym  $mod+Shift+o            move scratchpad
+# move workspace
+bindsym  $mod+Shift+a            move workspace to output left
+bindsym  $mod+Shift+s            move workspace to output right
+# kill focused window
+bindsym  $mod+Shift+Q            kill
+# launch dmenu
+bindsym  $mod+d                  exec dmenu_run
+# rename current workspace
+bindsym  $mod+n                  exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+# start a terminal
+bindsym  $mod+Return             exec $shell
+# start a terminal "from here"
+bindsym  $mod+Shift+Return       exec urxvt -cd "`xcwd`"
+#bindsym  $mod+Shift+Return       exec uxterm -e "cd `xcwd` && /bin/zsh"
+# lock the computer
+bindsym  $mod+F12                exec i3lock -i ~/.i3/lock.png
+# change focus
+bindsym  $mod+h                  focus left
+bindsym  $mod+Left               focus left
+bindsym  $mod+j                  focus down
+bindsym  $mod+Down               focus down
+bindsym  $mod+k                  focus up
+bindsym  $mod+Up                 focus up
+bindsym  $mod+l                  focus right
+bindsym  $mod+Right              focus right
+bindsym  $mod+Ctrl+Left          focus parent; focus left
+bindsym  $mod+Ctrl+Right         focus parent; focus right
+bindsym  $mod+Ctrl+Down          focus parent; focus down
+bindsym  $mod+Ctrl+Up            focus parent; focus up
+# move focused window
+bindsym  $mod+Shift+H            move left
+bindsym  $mod+Shift+Left         move left
+bindsym  $mod+Shift+J            move down
+bindsym  $mod+Shift+Down         move down
+bindsym  $mod+Shift+K            move up
+bindsym  $mod+Shift+Up           move up
+bindsym  $mod+Shift+L            move right
+bindsym  $mod+Shift+Right        move right
+# switch to workspace
+bindsym  $mod+1                  workspace number 1
+bindsym  $mod+2                  workspace number 2
+bindsym  $mod+3                  workspace number 3
+bindsym  $mod+4                  workspace number 4
+bindsym  $mod+5                  workspace number 5
+bindsym  $mod+6                  workspace number 6
+bindsym  $mod+7                  workspace number 7
+bindsym  $mod+8                  workspace number 8
+bindsym  $mod+9                  workspace number 9
+bindsym  $mod+0                  workspace number 10
+bindsym  $mod+grave              workspace back_and_forth
+bindsym  $mod+minus              workspace prev
+bindsym  $mod+equal              workspace next
+# move focused container to workspace
+bindsym  $mod+Shift+exclam       move container to workspace number 1
+bindsym  $mod+Shift+at           move container to workspace number 2
+bindsym  $mod+Shift+numbersign   move container to workspace number 3
+bindsym  $mod+Shift+dollar       move container to workspace number 4
+bindsym  $mod+Shift+percent      move container to workspace number 5
+bindsym  $mod+Shift+asciicircum  move container to workspace number 6
+bindsym  $mod+Shift+ampersand    move container to workspace number 7
+bindsym  $mod+Shift+asterisk     move container to workspace number 8
+bindsym  $mod+Shift+parenleft    move container to workspace number 9
+bindsym  $mod+Shift+parenright   move container to workspace number 10
+# split
+bindsym  $mod+s                  split v
+bindsym  $mod+v                  split h
+# enter fullscreen mode for the focused container
+bindsym  $mod+f                  fullscreen
+# change container layout (stacked, tabbed, default)
+bindsym  $mod+q                  layout stacking
+bindsym  $mod+w                  layout tabbed
+bindsym  $mod+e                  layout default
+# toggle tiling / floating
+bindsym  $mod+Shift+space        floating toggle
+# change focus between tiling / floating windows
+bindsym  $mod+space              focus mode_toggle
+# focus the parent container
+bindsym  $mod+a                  focus parent
+bindsym  $mod+c                  focus child
+# reload the configuration file
+bindsym  $mod+Shift+C            reload
+# restart i3
+bindsym  $mod+Shift+R            restart
+# exit i3
+bindsym $mod+Shift+e mode "(L)ogout, (R)eboot, (P)oweroff"
+# resize
+bindsym  $mod+r                  mode "resize"
+# move
+#bindsym  $mod+m                  mode "move"
+bindsym  $mod+m                  exec claws-mail; workspace number 10
+# fn keys
+bindsym  XF86AudioRaiseVolume    exec  amixer -q set Master 5%+
+bindsym  XF86AudioLowerVolume    exec  amixer -q set Master 5%-
+bindsym  XF86AudioMute           exec  amixer -q set Master toggle
+bindsym  XF86MonBrightnessUp     exec  xbacklight -inc 10
+bindsym  XF86MonBrightnessDown   exec  xbacklight -dec 10
+bindsym  Print                   exec  scrot
+bindsym  XF86Explorer            exec  i3lock -f -e -i ~/.i3/lock.png
+bindsym  XF86LaunchA             exec  ~/screen.sh auto
+# floating center
+bindsym  $mod+x                  move absolute position center
+# focus firefox + new tab
+bindsym $mod+BackSpace [class="Firefox"] focus; exec firefox -new-tab google.fr
+
+##############
+#### Mode ####
+##############
+mode "resize" {
+        # left
+        bindsym h           resize shrink width  1 px or  1 ppt
+        bindsym Left        resize shrink width  1 px or  1 ppt
+        bindsym Shift+h     resize shrink width 10 px or 10 ppt
+        bindsym Shift+Left  resize shrink width 10 px or 10 ppt
+        # right
+        bindsym l           resize grow width  1 px or  1 ppt
+        bindsym Right       resize grow width  1 px or  1 ppt
+        bindsym Shift+l     resize grow width 10 px or 10 ppt
+        bindsym Shift+Right resize grow width 10 px or 10 ppt
+        # up
+        bindsym j           resize grow height  1 px or  1 ppt
+        bindsym Down        resize grow height  1 px or  1 ppt
+        bindsym Shift+j     resize grow height 10 px or 10 ppt
+        bindsym Shift+Down  resize grow height 10 px or 10 ppt
+        # down
+        bindsym k           resize shrink height  1 px or  1 ppt
+        bindsym Up          resize shrink height  1 px or  1 ppt
+        bindsym Shift+k     resize shrink height 10 px or 10 ppt
+        bindsym Shift+Up    resize shrink height 10 px or 10 ppt
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "move" {
+        # left
+        bindsym h           move left  1 px
+        bindsym Left        move left  1 px
+        bindsym Shift+h     move left 10 px
+        bindsym Shift+Left  move left 10 px
+        bindsym $mod+Left   exec ~/.i3/scripts/move_to_border.py left
+        bindsym $mod+h      exec ~/.i3/scripts/move_to_border.py left
+        # right
+        bindsym l           move right  1 px
+        bindsym Right       move right  1 px
+        bindsym Shift+l     move right 10 px
+        bindsym Shift+Right move right 10 px
+        bindsym $mod+Right  exec ~/.i3/scripts/move_to_border.py right
+        bindsym $mod+l      exec ~/.i3/scripts/move_to_border.py right
+        # up
+        bindsym k           move up  1 px
+        bindsym Up          move up  1 px
+        bindsym Shift+k     move up 10 px
+        bindsym Shift+Up    move up 10 px
+        bindsym $mod+Up     exec ~/.i3/scripts/move_to_border.py up
+        bindsym $mod+k      exec ~/.i3/scripts/move_to_border.py up
+        # down
+        bindsym j           move down  1 px
+        bindsym Down        move down  1 px
+        bindsym Shift+j     move down 10 px
+        bindsym Shift+Down  move down 10 px
+        bindsym $mod+Down   exec ~/.i3/scripts/move_to_border.py down
+        bindsym $mod+j      exec ~/.i3/scripts/move_to_border.py down
+        # center
+        bindsym x           move absolute position center
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Create Log out, Reboot, Poweroff bindings
+mode "(L)ogout, (R)eboot, (P)oweroff" {
+        bindsym $mod+r exec reboot
+        bindsym $mod+l exit
+        bindsym $mod+p exec poweroff
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#############
+#### Bar ####
+#############
+bar {
+        tray_output primary
+        font xft:Monospace 8
+        #status_command i3status --config ~/.i3/i3status.conf
+        i3bar_command  /usr/bin/i3bar-icons
+        status_command ~/.i3/conky-i3bar-wrapper.sh
+        position top
+        mode dock
+        colors {
+             background $black
+             statusline $white
+                                #border     #backgr     #text
+             focused_workspace  $blue       $black      $white
+             inactive_workspace $darkgray2  $black      $gray
+             active_workspace   $darkgray2  $darkgray3  $white
+             urgent_workspace   $black     $red        $white
+        }
+}

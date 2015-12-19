@@ -1,0 +1,59 @@
+background no
+out_to_x no
+out_to_console yes
+update_interval 1
+
+TEXT
+,[
+    {
+        "color": "\#4c7899",
+        "icon_color": "\#4c7899",
+        "icon":"/home/schischi/.i3/icons/cpu.xbm",
+        "separator_block_width": 15,
+        "full_text": "[${cpu cpu1}%, ${cpu cpu2}% ${cpu cpu3}%, ${cpu cpu4}%]"
+    },
+    {
+        "color": "\#4c7899",
+        "icon_color": "\#4c7899",
+        "icon": "/home/schischi/.i3/icons/mem.xbm",
+        "separator_block_width": 15,
+        "full_text": "${memperc}%"
+    },
+    {
+        "color": "\#4c7899",
+        "icon_color": "\#4c7899",
+        "icon":"/home/schischi/.i3/icons/spkr.xbm",
+        "separator_block_width": 15,
+        "full_text": "${exec amixer sget Master | grep "Front Left:" | sed -e 's/.*Playback [0-9]* \[\([0-9]*%\)\].*/\1/'}"
+    },
+    ${if_empty ${battery BAT0} }
+    ${else}
+        {
+            ${if_match ${battery_percent BAT0} <= 10}
+                "color": "\#FF0000",
+            ${else}
+                "color": "\#00C00",
+            ${endif}
+            ${if_existing /sys/class/power_supply/AC/online 1}
+                "icon":"/home/schischi/.i3/icons/ac.xbm",
+            ${else}
+                "icon":"/home/schischi/.i3/icons/bat.xbm",
+            ${endif}
+            "icon_color": "\#4c7899",
+            "full_text": "${battery_percent BAT0}%",
+            "separator": false,
+            "separator_block_width": 4
+        },
+        {
+            "color": "\#4C7899",
+            "full_text": "(${battery_time})"
+        },
+    ${endif}
+    {
+        "icon":"/home/schischi/.i3/icons/clock.xbm",
+        "icon_color": "\#4c7899",
+        "color": "\#CFCFCF",
+        "separator_block_width": 15,
+        "full_text": "${time %d/%m/%y} ${time %H:%M}"
+    }\
+]
