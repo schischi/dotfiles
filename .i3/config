@@ -71,7 +71,7 @@ bindsym  $mod+Return             exec $shell
 bindsym  $mod+Shift+Return       exec urxvt -cd "`xcwd`"
 #bindsym  $mod+Shift+Return       exec uxterm -e "cd `xcwd` && /bin/zsh"
 # lock the computer
-bindsym  $mod+F12                exec i3lock -i ~/.i3/lock.png
+bindsym  $mod+F12                exec i3lock -d -c 007700
 # change focus
 bindsym  $mod+h                  focus left
 bindsym  $mod+Left               focus left
@@ -158,7 +158,7 @@ bindsym  XF86LaunchA             exec  ~/screen.sh auto
 # floating center
 bindsym  $mod+x                  move absolute position center
 # focus firefox + new tab
-bindsym $mod+BackSpace [class="Firefox"] focus; exec firefox -new-tab google.fr
+bindsym $mod+BackSpace [class="Firefox"] focus; exec firefox -new-tab google.com
 
 ##############
 #### Mode ####
