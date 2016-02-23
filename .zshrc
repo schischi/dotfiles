@@ -1,4 +1,8 @@
 setopt extendedglob
+setopt APPEND_HISTORY
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
 
 ##########################
 ### COMPLETION/HISTORY ###
