@@ -50,15 +50,15 @@ URxvt.urgentOnBell:         true
 URxvt.iso14755:             false
 URxvt.iso14755_52:          false
 URxvt.perl-lib:             .urxvt/urxvt-perls/
-URxvt.perl-ext-common:      default,url-picker,keyboard-select,font-size
+URxvt.perl-ext-common:      default,url-picker,font-size
 URxvt.urlLauncher:          /usr/bin/firefox
 URxvt.keysym.M-u:           perl:url-picker
 URxvt.keysym.M-v:           perl:keyboard-select:activate
 URxvt.keysym.C-equal:       perl:font-size:increase
 URxvt.keysym.C-minus:       perl:font-size:decrease
-URxvt.keysym.M-c:           perl:clipboard:copy
-URxvt.keysym.M-v:           perl:clipboard:paste
-URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
+#URxvt.keysym.M-c:           perl:clipboard:copy
+#URxvt.keysym.M-v:           perl:clipboard:paste
+#URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
 URxvt.pointerBlank:         true
 Urxvt:                      pointerBlankDelay: 1
 urxvt.fading:               15
